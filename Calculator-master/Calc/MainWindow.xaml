@@ -24,6 +24,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <!--Number Buttons-->
         <Button Foreground="GhostWhite" Background="#34495e" x:Name="btn7" Grid.Row="3" Grid.Column="0" Click="btn7_Click">7</Button>
@@ -54,6 +55,10 @@
                 
         <!--Positive & Negative Buttons-->
         <Button Foreground="GhostWhite" Background="#2e4053" x:Name="btnPositiveNegative" Grid.Row="6" Grid.Column="0" Click="btnPositiveNegative_Click">+-</Button>
+
+        <Button Foreground="GhostWhite" Background="#2e4053" x:Name="btnPercentage" Grid.Row="7" Grid.Column="1" Click="btnPercentage_Click">%</Button>
+
+        <Button Foreground="GhostWhite" Background="#2e4053" x:Name="btSqrRoot" Grid.Row="7" Grid.Column="0" Click="btnSqrRoot_Click">Sqr</Button>
 
         <!--Display Buttons-->
         <TextBox x:Name="textBox_Result" IsReadOnly="True" TextAlignment="Right" VerticalAlignment="Bottom" FontSize="30" BorderThickness="0

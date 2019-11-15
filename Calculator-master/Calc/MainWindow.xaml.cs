@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Calculator
 {
     /// <summary>
@@ -32,6 +33,7 @@ namespace Calculator
         bool minusButtonClicked = false;
         bool multiplyButtonClicked = false;
         bool divideButtonClicked = false;
+        bool percentageButtonClicked = false;
 
 
 
@@ -90,7 +92,22 @@ namespace Calculator
                 textBox_Result.Text = total2.ToString();
                 total1 = 0;
             }
-
+            //else if (percentageButtonClicked == true)
+            //{
+            //    //A + (A × B/100) 
+            //    total2 = total1 + (total1 * double.Parse(textBox_Result.Text));
+            //    labelCurrentOperation.Content = total1 + "%" + double.Parse(textBox_Result.Text);
+            //    textBox_Result.Text = total2.ToString();
+            //    total1 = 0;
+            //}
+            //else if (sqrRootButtonClicled == true)
+            //{
+            //    total2 = total1;
+            //    total2 = Math.Sqrt(total2);
+            //    labelCurrentOperation.Content = "√" + double.Parse(textBox_Result.Text);
+            //    textBox_Result.Text = total2.ToString();
+            //    total1 = 0;
+            //}
         }
 
         private void btnBackSpace_Click(object sender, RoutedEventArgs e)
@@ -223,6 +240,37 @@ namespace Calculator
                 textBox_Result.Text += ",";
             }
             
+        }
+
+        private void btnSqrRoot_Click(object sender, RoutedEventArgs e)
+        {
+            total1 += double.Parse(textBox_Result.Text);
+            labelCurrentOperation.Content = "√" + "(" + textBox_Result.Text + ")";
+            textBox_Result.Text = Math.Sqrt(total1).ToString();
+            total1 = 0;
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            
+        }
+
+        private void btnPercentage_Click(object sender, RoutedEventArgs e)
+        {
+            //A + (A × B/100) 
+            
+            total2 = total1 + (total1 * double.Parse(textBox_Result.Text) / 100);
+            total1 += double.Parse(textBox_Result.Text);
+            labelCurrentOperation.Content = textBox_Result + "%";
+            textBox_Result.Text = total2.ToString();
+            total1 = 0;
+
+            plusButtonClicked = false;
+            minusButtonClicked = false;
+            multiplyButtonClicked = false;
+            divideButtonClicked = false;
+            //percentageButtonClicked = true;
         }
     }
 }
